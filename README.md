@@ -1,6 +1,6 @@
 # JFXBomberman
 
-Gioco in stile Bomberman scritto in **Java + JavaFX** (progetto del 2023), con menu utenti/statistiche, livelli, nemici (NPC), power-up e un **editor di livelli e mondi** integrato.
+Gioco in stile Bomberman scritto in **Java + JavaFX** — progetto originale del **2023** (novembre 2023), con menu utenti/statistiche, livelli, nemici (NPC), power-up e un **editor di livelli e mondi** integrato.
 
 Architettura MVC: `src/controller`, `src/model`, `src/view`; asset (sprite, audio, font, FXML, CSS, livelli) in `res/`.
 
