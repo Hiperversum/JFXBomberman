@@ -14,7 +14,10 @@ Architettura MVC: `src/controller`, `src/model`, `src/view`; asset (sprite, audi
 Dalla cartella del progetto:
 
 ```bash
-# Windows
+# Windows (PowerShell)
+.\mvnw.cmd javafx:run
+
+# Windows (Prompt dei comandi / cmd.exe)
 mvnw.cmd javafx:run
 
 # Linux / macOS
