@@ -1,0 +1,120 @@
+/*LOAD LEVEL SETTINGS:*/
+.text-field {
+    -fx-font-family: "Gill Sans Ultra Bold";
+    -fx-font-size: 14px;
+    -fx-padding: 3px;
+}
+/*TITLE*/
+.label-pressStart2P {
+    -fx-font-family: "Press Start 2P";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 2, 2, 2);
+}
+/*EDITOR PANE*/
+.button-settings{
+    -fx-font-family: "Press Start 2P";
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+    -fx-text-fill: #ffffff;
+}
+.button-settings:hover{
+    -fx-background-color: #ffbb3c;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 6px;
+    -fx-border-width: 3px;
+    -fx-border-color: #e35c24;
+    -fx-text-fill: #ffffff;
+}
+/*WORLD PANE*/
+.pane-unselectable{
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+}
+.pane-selectable{
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+}
+
+.pane-selectable:hover{
+    -fx-background-color: #ffbb3c;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #e35c24;
+}
+
+.pane-selectable.selected {
+    -fx-background-color: #ffbb3c;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #e35c24;
+}
+
+
+/*WORLD EDITOR PANE*/
+.label-add-remove-levelToWorld-pressStart2P {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 1, 0, 0);
+}
+.label-add-remove-levelToWorld-pressStart2P:hover {
+    -fx-effect: dropshadow(gaussian, rgb(255, 187, 60), 1, 1, 0, 0);
+}
+/*SAFE PANE*/
+.pane-levelToDelete {
+    -fx-background-color: rgba(38,38,38,0.73);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+}
+
+.image-view-selectable:hover{
+    -fx-effect: dropshadow(gaussian, rgb(255, 184, 70),25, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-transition-duration: 0.3s;
+}
+/*SCROLL PANE*/
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ffb846;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgb(21, 21, 21), 1, 1, 0, 0);
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar-thumb .thumb {
+    -fx-background-color: #ffb846;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar .increment-button {
+    -fx-background-color: #FF5733;
+    -fx-shape: "M0,0 L14,0 L7,10 Z"; /* Imposta una forma triangolare  */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .decrement-button {
+    -fx-background-color: #FF5733;
+    -fx-shape: "M7,0 L14,10 L0,10 Z"; /* Imposta una forma triangolare  */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

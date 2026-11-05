@@ -1,0 +1,146 @@
+.label-pressStart2P {
+    -fx-font-family: "Press Start 2P";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 2, 2, 2);
+}
+.image-view:hover {
+    -fx-effect: dropshadow(gaussian, rgb(77, 74, 74),30, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-transition-duration: 0.3s;
+}
+.invisible-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.enlarging-button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition-duration: 0.3s;
+    -fx-effect: dropshadow(gaussian, rgb(255, 184, 70),25, 0, 0, 0);
+}
+/*####################################################################################################################*/
+/*EDIT USER PANE*/
+.text-field {
+    -fx-font-family: "Gill Sans Ultra Bold";
+    -fx-font-size: 14px;
+    -fx-padding: 3px;
+}
+/*####################################################################################################################*/
+/*LOAD GAME:*/
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ffb846;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgb(21, 21, 21), 1, 1, 0, 0);
+} 
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar-thumb .thumb {
+    -fx-background-color: #ffb846;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar .increment-button {
+    -fx-background-color: #FF5733;
+    -fx-shape: "M0,0 L14,0 L7,10 Z";
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .decrement-button {
+    -fx-background-color: #FF5733;
+    -fx-shape: "M7,0 L14,10 L0,10 Z";
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.label-loadUser {
+    -fx-font-family: "Gill Sans Ultra Bold";
+    -fx-font-size: 22px;
+}
+
+.pane-unselectable{
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+}
+
+.pane-selectable{
+    -fx-background-color: #262626;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #151515;
+}
+
+.pane-selectable:hover{
+    -fx-background-color: #ffbb3c;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #e35c24;
+}
+
+.pane-selectable.selected {
+    -fx-background-color: #ffbb3c;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #e35c24;
+}
+/*####################################################################################################################*/
+/*SAFE PANEL*/
+.sureButton:hover {
+    -fx-effect: dropshadow(gaussian, rgb(255, 184, 70),25, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-transition-duration: 0.3s;
+}
+
+/*SETTINGS*/
+.label-selectablePressStart2P {
+    -fx-font-family: "Press Start 2P";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 2, 2, 2);
+    -fx-border-color: #646060;
+    -fx-border-width: 2px;
+    -fx-padding: 5px; /* Aggiunge uno spazio tra il testo e il contorno */
+
+}
+
+.label-selectablePressStart2P:hover {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 17;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition-duration: 1s;
+}
+/*STATS*/
+.label-selectablePressStart2P-Stats {
+    -fx-font-family: "Press Start 2P";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 2, 2, 2);
+    -fx-border-color: #ffb846;
+    -fx-border-width: 2px;
+    -fx-padding: 5px; /* Aggiunge uno spazio tra il testo e il contorno */
+
+}
+.label-selectablePressStart2P-Stats:hover {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 17;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition-duration: 1s;
+}
+
+
+
+

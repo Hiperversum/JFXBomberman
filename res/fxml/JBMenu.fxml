@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="816.0" stylesheets="@../css/MenuStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <ImageView disable="true" fitHeight="720.0" fitWidth="816.0" pickOnBounds="true">
+         <image>
+            <Image url="@../menu/sky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud4" disable="true" fitHeight="27.0" fitWidth="52.0" layoutX="150.0" layoutY="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/cloud2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud2" disable="true" fitHeight="27.0" fitWidth="52.0" layoutX="540.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/cloud2.png" />
+         </image>
+      </ImageView>
+      <ImageView disable="true" fitHeight="726.0" fitWidth="830.0" layoutX="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@../menu/city.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud6" disable="true" fitHeight="121.0" fitWidth="242.0" layoutX="816.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/cloud4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud5" disable="true" fitHeight="50.0" fitWidth="117.0" layoutX="-33.0" layoutY="343.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/cloud3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud3" disable="true" fitHeight="38.0" fitWidth="131.0" layoutX="679.0" layoutY="519.0" pickOnBounds="true">
+         <image>
+            <Image url="@../menu/cloud3.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="menuPane" prefHeight="720.0" prefWidth="816.0" visible="false">
+         <children>
+            <Button fx:id="playButton" focusTraversable="false" layoutX="152.0" layoutY="369.0" mnemonicParsing="false" onAction="#playNormalGame" prefHeight="66.0" prefWidth="447.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="496.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/NGButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="CustomLevel" focusTraversable="false" layoutX="92.0" layoutY="435.0" mnemonicParsing="false" onAction="#showCustomLevels" prefHeight="66.0" prefWidth="530.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="615.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../menu/CLButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="customize" disable="true" focusTraversable="false" layoutX="176.0" layoutY="501.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="460.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="434.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../menu/CSTButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="editorButton" focusTraversable="false" layoutX="277.0" layoutY="574.0" mnemonicParsing="false" onAction="#loadEditorScene" prefHeight="58.0" prefWidth="102.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="242.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../menu/EDTButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="exit" focusTraversable="false" layoutX="310.0" layoutY="640.0" mnemonicParsing="false" onAction="#exit" prefHeight="58.0" prefWidth="102.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/EXTButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Pane fx:id="statsPane" prefHeight="720.0" prefWidth="816.0" visible="false">
+               <children>
+                  <ImageView disable="true" fitHeight="309.0" fitWidth="460.0" layoutX="178.0" layoutY="368.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../menu/editUserPane.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="TOP_CENTER" layoutX="195.0" layoutY="378.0" prefHeight="225.0" prefWidth="427.0">
+                     <children>
+                        <Label fx:id="renameLabelTitle" alignment="CENTER" focusTraversable="false" prefHeight="60.0" prefWidth="427.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="STATS">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <HBox prefHeight="40.0" prefWidth="427.0">
+                           <children>
+                              <Label focusTraversable="false" prefHeight="40.0" prefWidth="315.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="Best Score:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                              <Label fx:id="bestScoreLabel" focusTraversable="false" prefHeight="45.0" prefWidth="287.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="427.0">
+                           <children>
+                              <Label focusTraversable="false" prefHeight="40.0" prefWidth="400.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="Games played:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                              <Label fx:id="gamesPlayedLabel" focusTraversable="false" prefHeight="45.0" prefWidth="287.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="427.0">
+                           <children>
+                              <Label focusTraversable="false" prefHeight="45.0" prefWidth="287.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="Games won:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                              <Label fx:id="gamesWonLabel" focusTraversable="false" prefHeight="45.0" prefWidth="287.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="427.0">
+                           <children>
+                              <Label focusTraversable="false" prefHeight="45.0" prefWidth="334.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="Games lost:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                              <Label fx:id="gamesLostLabel" focusTraversable="false" prefHeight="45.0" prefWidth="287.0" styleClass="label-pressStart2P" stylesheets="@../css/MenuStyle.css" text="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label alignment="CENTER" layoutX="308.0" layoutY="618.0" onMouseClicked="#showLoadMenuPane" prefHeight="40.0" prefWidth="201.0" styleClass="label-selectablePressStart2P-Stats" text="Change User">
+                     <font>
+                        <Font name="Arial Bold" size="17.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.44075829383886256" endY="0.7488151658767773" startX="0.4218009478672986" startY="0.25118483412322273">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fx:id="userStatsImV" fitHeight="38.0" fitWidth="39.0" layoutX="764.0" layoutY="673.0" onMouseClicked="#showStatsPane" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../avatars/empty.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="editUserPane" layoutX="180.0" layoutY="365.0" prefHeight="309.0" prefWidth="476.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="editUserAvatar" disable="true" fitHeight="50.0" fitWidth="52.0" layoutX="17.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../avatars/0.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="playerNameTextField" focusTraversable="false" layoutX="76.0" layoutY="42.0" prefHeight="22.0" prefWidth="149.0" promptText="player name...." styleClass="text-field" />
+            <Label disable="true" layoutX="77.0" layoutY="25.0" prefHeight="17.0" prefWidth="98.0" text="Your Nickname:" textFill="WHITE" />
+            <GridPane fx:id="avatarsGridPane" layoutX="14.0" layoutY="86.0" prefHeight="168.0" prefWidth="448.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="56.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="56.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="56.0" minHeight="56.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="56.0" minHeight="56.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="56.0" minHeight="56.0" prefHeight="56.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <Button fx:id="okButton" focusTraversable="false" layoutX="410.0" layoutY="265.0" mnemonicParsing="false" onAction="#createNewUser" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="39.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/OKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="backButton" focusTraversable="false" layoutX="8.0" layoutY="263.0" mnemonicParsing="false" onAction="#backToFirstMenu" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="75.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="loadUserPane" layoutX="180.0" layoutY="365.0" prefHeight="309.0" prefWidth="476.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="okButtonLoadUser" disable="true" focusTraversable="false" layoutX="410.0" layoutY="265.0" mnemonicParsing="false" onAction="#showMenu" onMouseClicked="#showMenu" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="39.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/OKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button focusTraversable="false" layoutX="8.0" layoutY="263.0" mnemonicParsing="false" onAction="#backToFirstMenu" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="75.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="21.0" prefHeight="225.0" prefWidth="448.0" stylesheets="@../css/MenuStyle.css" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="usersListVBox" prefHeight="67.0" prefWidth="425.0" styleClass="scroll-bar">
+                     <children>
+                        <Pane fx:id="userPane" onMouseClicked="#newUser" prefHeight="67.0" prefWidth="411.0" styleClass="pane-selectable" stylesheets="@../css/MenuStyle.css">
+                           <children>
+                              <ImageView fx:id="userAvatarImV" disable="true" fitHeight="50.0" fitWidth="52.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/empty.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="userNameLabel" disable="true" focusTraversable="false" layoutX="68.0" layoutY="18.0" prefHeight="29.0" prefWidth="231.0" styleClass="label-loadUser" stylesheets="@../css/MenuStyle.css" text="New User" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="deleteUserButton" layoutX="368.0" layoutY="15.0" mnemonicParsing="false" styleClass="invisible-button" visible="false">
+                                 <graphic>
+                                    <ImageView fx:id="deleteImV" fitHeight="31.0" fitWidth="27.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../menu/trashcan.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+               <styleClass>
+                  <String fx:value="scroll-bar-thumb" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="decrement-button" />
+               </styleClass>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="userSafePane" layoutX="180.0" layoutY="365.0" prefHeight="309.0" prefWidth="476.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0" layoutY="-7.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="33.0" layoutY="114.0" opacity="0.61" prefHeight="67.0" prefWidth="411.0" styleClass="pane-unselectable" stylesheets="@../css/MenuStyle.css">
+               <children>
+                  <ImageView fx:id="userAvatarToDelete" disable="true" fitHeight="50.0" fitWidth="52.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../avatars/empty.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="userNameToDelete" focusTraversable="false" layoutX="68.0" layoutY="18.0" prefHeight="29.0" prefWidth="231.0" styleClass="label-loadUser" stylesheets="@../css/MenuStyle.css" text="Empty" textFill="#67696b">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label focusTraversable="false" layoutX="31.0" layoutY="24.0" prefHeight="79.0" prefWidth="415.0" styleClass="label-pressStart2P" text="Are you sure you want to delete it:" wrapText="true">
+               <textFill>
+                  <LinearGradient endX="0.033175355450236976" endY="1.0" startX="0.7061611374407583" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.24313725531101227" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="38.0" fitWidth="93.0" layoutX="88.0" layoutY="207.0" onMouseClicked="#deleteUser" pickOnBounds="true" styleClass="sureButton">
+               <image>
+                  <Image url="@../menu/yesButton.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="noImV" fitHeight="40.0" fitWidth="63.0" layoutX="300.0" layoutY="207.0" onMouseClicked="#showLoadMenuPane" pickOnBounds="true" styleClass="sureButton">
+               <image>
+                  <Image url="@../menu/noButton.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="firstMenuPane" prefHeight="720.0" prefWidth="816.0">
+         <children>
+            <Button fx:id="continueButton" focusTraversable="false" layoutX="201.0" layoutY="405.0" mnemonicParsing="false" onAction="#continueByLastUser" prefHeight="63.0" prefWidth="415.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="392.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/CNTButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="newGameButton" focusTraversable="false" layoutX="185.0" layoutY="474.0" mnemonicParsing="false" onAction="#newUser" prefHeight="73.0" prefWidth="380.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="61.0" fitWidth="432.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../menu/NWGMButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="loadGameButton" focusTraversable="false" layoutX="114.0" layoutY="547.0" mnemonicParsing="false" onAction="#showLoadMenuPane" prefHeight="79.0" prefWidth="592.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="63.0" fitWidth="510.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/LDGMButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="exit2" focusTraversable="false" layoutX="311.0" layoutY="626.0" mnemonicParsing="false" onAction="#exit" prefHeight="58.0" prefWidth="102.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fx:id="exitButton1" fitHeight="58.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/EXTButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="settingsPane" layoutX="-1.0" layoutY="365.0" prefHeight="355.0" prefWidth="816.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="342.0" fitWidth="536.0" layoutX="154.0">
+               <image>
+                  <Image url="@../menu/optionsPane.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="164.0" layoutY="14.0" prefHeight="63.0" prefWidth="514.0" styleClass="label-pressStart2P" text="Options">
+               <font>
+                  <Font name="Arial Bold" size="30.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.44075829383886256" endY="0.7488151658767773" startX="0.4218009478672986" startY="0.25118483412322273">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5529412031173706" green="0.5529412031173706" blue="0.5529412031173706" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.43421053886413574" green="0.4301900565624237" blue="0.4301900565624237" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label alignment="CENTER" layoutX="321.0" layoutY="262.0" onMouseClicked="#showLoadMenuPane" prefHeight="40.0" prefWidth="201.0" styleClass="label-selectablePressStart2P" text="Change User">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.44075829383886256" endY="0.7488151658767773" startX="0.4218009478672986" startY="0.25118483412322273">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5529412031173706" green="0.5529412031173706" blue="0.5529412031173706" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.43421053886413574" green="0.4301900565624237" blue="0.4301900565624237" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="Logo" disable="true" fitHeight="342.0" fitWidth="816.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menu/JBomberman.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="settingsButton" fitHeight="38.0" fitWidth="39.0" layoutX="764.0" layoutY="623.0" onMouseClicked="#showSettingsPane" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../menu/settingsButton.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="customLevelsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="726.0" prefWidth="824.0" stylesheets="@../css/MenuStyle.css" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="720.0" fitWidth="816.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Label focusTraversable="false" layoutX="28.0" layoutY="32.0" prefHeight="58.0" prefWidth="534.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="CUSTOM LEVELS">
+               <font>
+                  <Font size="35.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.48815165876777256" endY="1.0" startX="0.4786729857819905" startY="0.3175355450236967">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ScrollPane fx:id="selectWorldScrollPane" hbarPolicy="NEVER" layoutX="24.0" layoutY="131.0" prefHeight="500.0" prefWidth="476.0" stylesheets="@../css/EditorStyle.css" vbarPolicy="ALWAYS">
+               <styleClass>
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar-thumb" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+               <content>
+                  <VBox fx:id="worldVBox" prefHeight="100.0" prefWidth="462.0" />
+               </content>
+            </ScrollPane>
+            <ScrollPane fx:id="levelListScrollPane" hbarPolicy="NEVER" layoutX="510.0" layoutY="131.0" prefHeight="500.0" prefWidth="283.0" stylesheets="@../css/EditorStyle.css" vbarPolicy="ALWAYS">
+               <styleClass>
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar-thumb" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+               <content>
+                  <VBox fx:id="levelListVBox" minHeight="0.0" prefHeight="0.0" prefWidth="270.0" />
+               </content>
+            </ScrollPane>
+            <Button focusTraversable="false" layoutX="14.0" layoutY="644.0" mnemonicParsing="false" onAction="#showCustomLevels" prefHeight="40.0" prefWidth="108.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="playCustomWorldButton" disable="true" focusTraversable="false" layoutX="673.0" layoutY="644.0" mnemonicParsing="false" onAction="#playCustomLevels" prefHeight="40.0" prefWidth="108.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/playButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="labelWorldName" alignment="CENTER" layoutX="510.0" layoutY="83.0" prefHeight="47.0" prefWidth="283.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.4976303317535545" endY="1.0" startX="0.4976303317535545">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

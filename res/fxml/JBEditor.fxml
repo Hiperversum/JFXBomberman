@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="editorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditorController">
+   <children>
+      <ImageView disable="true" fitHeight="720.0" fitWidth="1060.0" pickOnBounds="true">
+         <image>
+            <Image url="@../menu/optionsPane.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelLevelName" alignment="CENTER" layoutX="26.0" layoutY="25.0" prefHeight="45.0" prefWidth="816.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css">
+         <font>
+            <Font size="32.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.4976303317535545" endY="1.0" startX="0.4976303317535545">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.35686275362968445" green="0.35686275362968445" blue="0.35686275362968445" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6392157077789307" green="0.6392157077789307" blue="0.6392157077789307" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Canvas fx:id="canvas" height="624.0" layoutX="26.0" layoutY="70.0" width="816.0" />
+      <Label alignment="CENTER" layoutX="849.0" layoutY="58.0" prefHeight="17.0" prefWidth="186.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="Categories:" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="14.0" />
+         </font>
+      </Label>
+      <VBox fx:id="Categories" layoutX="849.0" layoutY="87.0" prefHeight="172.0" prefWidth="186.0">
+         <children>
+            <Button fx:id="themes" focusTraversable="false" mnemonicParsing="false" onAction="#setTheme" prefHeight="25.0" prefWidth="205.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="Themes" />
+            <Button fx:id="background" focusTraversable="false" mnemonicParsing="false" onAction="#setCategory" prefHeight="25.0" prefWidth="205.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="Backgrounds" />
+            <Button fx:id="floor" focusTraversable="false" mnemonicParsing="false" onAction="#setCategory" prefHeight="25.0" prefWidth="205.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="Floors" />
+            <Button fx:id="wall" focusTraversable="false" mnemonicParsing="false" onAction="#setCategory" prefHeight="25.0" prefWidth="217.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="Walls" />
+            <Button fx:id="obstacles" focusTraversable="false" mnemonicParsing="false" onAction="#setCategory" prefHeight="25.0" prefWidth="217.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="Obstacles" />
+            <Button fx:id="npc" focusTraversable="false" mnemonicParsing="false" onAction="#setCategory" prefHeight="25.0" prefWidth="217.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="NPC" />
+         </children>
+      </VBox>
+      <Label fx:id="chosenCategoryLabel" alignment="CENTER" layoutX="849.0" layoutY="289.0" prefHeight="17.0" prefWidth="186.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="14.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="scrollPane" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="847.0" layoutY="315.0" pannable="true" prefHeight="200.0" prefWidth="192.0" vbarPolicy="ALWAYS" visible="false" vmax="0.0">
+         <content>
+            <VBox fx:id="vboxWithButtons" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="184.0" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="scrollPaneWithGrid" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="847.0" layoutY="315.0" pannable="true" prefHeight="200.0" prefWidth="192.0" vbarPolicy="ALWAYS" visible="false" vmax="0.0">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <GridPane fx:id="entityGridPane" layoutX="2.0" layoutY="14.0" prefHeight="150.0" prefWidth="177.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="48.0" prefWidth="48.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="48.0" prefWidth="48.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="48.0" prefWidth="48.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <VBox layoutX="850.0" layoutY="551.0" prefHeight="100.0" prefWidth="186.0">
+         <children>
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#resetEditor" prefHeight="25.0" prefWidth="186.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="RESET" textFill="WHITE" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#showWorldPane" prefHeight="25.0" prefWidth="186.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="WORLD EDITOR" textFill="WHITE" />
+            <Button focusTraversable="false" graphicTextGap="0.0" mnemonicParsing="false" onAction="#showSavePane" prefHeight="25.0" prefWidth="186.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="SAVE" textFill="WHITE" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#showLoadPane" prefHeight="25.0" prefWidth="186.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="LOAD" textFill="WHITE" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="186.0" styleClass="button-settings" stylesheets="@../css/EditorStyle.css" text="EXIT" textFill="WHITE" />
+         </children>
+      </VBox>
+      <Pane fx:id="savePane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0" layoutX="292.0" layoutY="206.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="saveLabelTitle" alignment="CENTER" focusTraversable="false" layoutX="301.0" layoutY="216.0" prefHeight="36.0" prefWidth="458.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="Save">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button fx:id="saveButton" disable="true" focusTraversable="false" layoutX="702.0" layoutY="471.0" mnemonicParsing="false" onAction="#saveLevel" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="39.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/OKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="backLevelButton" focusTraversable="false" layoutX="301.0" layoutY="469.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="75.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane fx:id="userPaneSelectedToDelete" layoutX="325.0" layoutY="281.0" opacity="0.61" prefHeight="67.0" prefWidth="411.0" styleClass="pane-unselectable" stylesheets="@../css/MenuStyle.css">
+               <children>
+                  <ImageView fx:id="levelPreview" disable="true" fitHeight="50.0" fitWidth="52.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../avatars/empty.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="levelNameTextField" focusTraversable="false" layoutX="68.0" layoutY="22.0" prefHeight="25.0" prefWidth="197.0" promptText="level name...." styleClass="text-field">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Label disable="true" layoutX="325.0" layoutY="252.0" prefHeight="29.0" prefWidth="197.0" text="Choose Level Name:" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans Ultra Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="warningLabel" focusTraversable="false" layoutX="323.0" layoutY="360.0" prefHeight="93.0" prefWidth="415.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" wrapText="true">
+               <textFill>
+                  <LinearGradient endX="0.033175355450236976" endY="1.0" startX="0.7061611374407583" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.24313725531101227" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="loadLevelPane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="720.0" fitWidth="1060.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Label focusTraversable="false" layoutX="28.0" layoutY="32.0" prefHeight="58.0" prefWidth="534.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="LOAD LEVEL">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.48815165876777256" endY="1.0" startX="0.4786729857819905" startY="0.3175355450236967">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" layoutX="27.0" layoutY="90.0" prefHeight="539.0" prefWidth="981.0" stylesheets="@../css/EditorStyle.css" vbarPolicy="ALWAYS">
+               <styleClass>
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar-thumb" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+               <content>
+                  <GridPane fx:id="levelGridPane" alignment="CENTER" prefHeight="0.0" prefWidth="967.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <columnConstraints>
+                        <ColumnConstraints minWidth="10.0" prefWidth="241.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="241.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="241.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="241.0" />
+                     </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <Button fx:id="backButtonLoadLevel" focusTraversable="false" layoutX="28.0" layoutY="651.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="loadButton" disable="true" focusTraversable="false" layoutX="960.0" layoutY="650.0" mnemonicParsing="false" onAction="#loadLevel" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="54.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/OKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="worldPanel" prefHeight="720.0" prefWidth="1060.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="720.0" fitWidth="1060.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Label focusTraversable="false" layoutX="28.0" layoutY="32.0" prefHeight="58.0" prefWidth="534.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="WORLD EDITOR">
+               <font>
+                  <Font size="35.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.48815165876777256" endY="1.0" startX="0.4786729857819905" startY="0.3175355450236967">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Pane fx:id="selectWorldPane" prefHeight="720.0" prefWidth="1060.0">
+               <children>
+                  <ScrollPane fx:id="selectWorldScrollPane" hbarPolicy="NEVER" layoutX="28.0" layoutY="151.0" prefHeight="500.0" prefWidth="723.0" stylesheets="@../css/EditorStyle.css" vbarPolicy="ALWAYS">
+                     <styleClass>
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="decrement-button" />
+                        <String fx:value="increment-button" />
+                        <String fx:value="scroll-bar-thumb" />
+                        <String fx:value="scroll-pane" />
+                     </styleClass>
+                     <content>
+                        <VBox fx:id="worldVBox" prefHeight="100.0" prefWidth="709.0">
+                           <children>
+                              <Pane fx:id="newWorldPane" onMouseClicked="#newWorld" prefHeight="100.0" prefWidth="200.0" styleClass="pane-selectable">
+                                 <children>
+                                    <Label layoutX="230.0" layoutY="28.0" prefHeight="45.0" prefWidth="250.0" text="New World">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="35.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="14.0" layoutY="1.0" prefHeight="0.0" prefWidth="53.0" text="+" textFill="WHITE">
+                                       <font>
+                                          <Font name="Gill Sans Ultra Bold" size="78.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Button fx:id="editWorldButton" disable="true" focusTraversable="false" layoutX="914.0" layoutY="651.0" mnemonicParsing="false" onAction="#showWorldEditorPane" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+                     <styleClass>
+                        <String fx:value="invisible-button" />
+                        <String fx:value="enlarging-button" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                           <image>
+                              <Image url="@../menu/EditButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="worldEditorPane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+               <children>
+                  <Label alignment="CENTER" layoutX="786.0" layoutY="640.0" onMouseClicked="#removeLevelFromWorld" prefHeight="38.0" prefWidth="35.0" styleClass="label-add-remove-levelToWorld-pressStart2P" stylesheets="@../css/EditorStyle.css" text="-" textAlignment="CENTER">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="50.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.5308056872037914" endY="0.47867298578199047" proportional="false" startX="0.46445497630331756" startY="0.43601895734597157">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="751.0" layoutY="642.0" onMouseClicked="#addLevelToWorld" prefHeight="38.0" prefWidth="35.0" styleClass="label-add-remove-levelToWorld-pressStart2P" stylesheets="@../css/EditorStyle.css" text="+" textAlignment="CENTER">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="50.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.909952606635071" endY="0.5308056872037914" proportional="false" startX="0.5118483412322274" startY="0.16587677725118483">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="28.0" layoutY="151.0" prefHeight="500.0" prefWidth="723.0" stylesheets="@../css/EditorStyle.css">
+                     <styleClass>
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="decrement-button" />
+                        <String fx:value="increment-button" />
+                        <String fx:value="scroll-bar-thumb" />
+                        <String fx:value="scroll-pane" />
+                     </styleClass>
+                     <content>
+                        <GridPane fx:id="worldEditorLevelGridPane" alignment="CENTER" prefHeight="178.0" prefWidth="709.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="479.0" minWidth="10.0" prefWidth="241.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="754.0" minWidth="10.0" prefWidth="241.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="754.0" minWidth="10.0" prefWidth="241.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+                  <Button focusTraversable="false" layoutX="914.0" layoutY="652.0" mnemonicParsing="false" onAction="#showSaveWorldPane" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+                     <styleClass>
+                        <String fx:value="invisible-button" />
+                        <String fx:value="enlarging-button" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                           <image>
+                              <Image url="@../menu/saveButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="labelWorldName" alignment="CENTER" layoutX="751.0" layoutY="104.0" prefHeight="47.0" prefWidth="283.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.4976303317535545" endY="1.0" startX="0.4976303317535545">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ScrollPane fx:id="levelListScrollPane" hbarPolicy="NEVER" layoutX="751.0" layoutY="151.0" prefHeight="500.0" prefWidth="283.0" stylesheets="@../css/EditorStyle.css" vbarPolicy="ALWAYS">
+               <styleClass>
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar-thumb" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+               <content>
+                  <VBox fx:id="levelListVBox" prefHeight="60.0" prefWidth="270.0" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="backButtonWorldMenu" focusTraversable="false" layoutX="28.0" layoutY="651.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="102.0" pickOnBounds="true" styleClass="invisible-button">
+                     <image>
+                        <Image url="@../menu/BCKButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane fx:id="saveWorldPane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+               <children>
+                  <ImageView disable="true" fitHeight="309.0" fitWidth="476.0" layoutX="292.0" layoutY="206.0">
+                     <image>
+                        <Image url="@../menu/editUserPane.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="saveWorldLabelTitle" alignment="CENTER" focusTraversable="false" layoutX="301.0" layoutY="216.0" prefHeight="36.0" prefWidth="458.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="Save">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.47393364928909953" endY="1.0" startX="0.4786729857819905" startY="0.30805687203791465">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.23529411852359772" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8901960849761963" green="0.3607843220233917" blue="0.1411764770746231" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Button fx:id="saveWorldButton" disable="true" focusTraversable="false" layoutX="699.0" layoutY="469.0" mnemonicParsing="false" onAction="#saveWorld" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="39.0" pickOnBounds="true" styleClass="invisible-button">
+                           <image>
+                              <Image url="@../menu/OKButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="invisible-button" />
+                        <String fx:value="enlarging-button" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="backWorldButton" focusTraversable="false" layoutX="303.0" layoutY="467.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" stylesheets="@../css/MenuStyle.css">
+                     <styleClass>
+                        <String fx:value="invisible-button" />
+                        <String fx:value="enlarging-button" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="75.0" pickOnBounds="true" styleClass="invisible-button">
+                           <image>
+                              <Image url="@../menu/BCKButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Pane layoutX="316.0" layoutY="294.0" opacity="0.61" prefHeight="58.0" prefWidth="411.0" styleClass="pane-unselectable" stylesheets="@../css/MenuStyle.css">
+                     <children>
+                        <TextField fx:id="worldNameTextField" focusTraversable="false" layoutX="14.0" layoutY="15.0" prefHeight="29.0" prefWidth="251.0" promptText="world name...." styleClass="text-field">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+                  <Label disable="true" layoutX="323.0" layoutY="265.0" prefHeight="29.0" prefWidth="197.0" text="Choose World Name:" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warningWorldLabel" focusTraversable="false" layoutX="323.0" layoutY="371.0" prefHeight="79.0" prefWidth="415.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" wrapText="true">
+                     <textFill>
+                        <LinearGradient endX="0.033175355450236976" endY="1.0" startX="0.7061611374407583" startY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7333333492279053" blue="0.24313725531101227" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.9966442953020134">
+                                 <color>
+                                    <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="levelSafePane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0" layoutX="292.0" layoutY="206.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="410.0" layoutY="277.0" opacity="0.61" prefHeight="178.0" prefWidth="241.0" styleClass="pane-levelToDelete" stylesheets="@../css/EditorStyle.css">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="178.0" prefWidth="241.0">
+                     <children>
+                        <ImageView fx:id="imgViewLevelToDelete" fitHeight="136.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="labelLevelToDelete" alignment="CENTER" prefHeight="17.0" prefWidth="174.0" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Label focusTraversable="false" layoutX="312.0" layoutY="220.0" prefHeight="50.0" prefWidth="415.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="Are you sure you want to delete it:" wrapText="true">
+               <textFill>
+                  <LinearGradient endX="0.033175355450236976" endY="1.0" startX="0.7061611374407583" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.24313725531101227" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button focusTraversable="false" layoutX="306.0" layoutY="455.0" mnemonicParsing="false" onAction="#deleteLevel" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="93.0" pickOnBounds="true" styleClass="image-view-selectable">
+                     <image>
+                        <Image url="@../menu/yesButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="backButtonLevelSafePane" focusTraversable="false" layoutX="673.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="63.0" pickOnBounds="true" styleClass="image-view-selectable">
+                     <image>
+                        <Image url="@../menu/noButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="worldSafePane" prefHeight="720.0" prefWidth="1060.0" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="309.0" fitWidth="476.0" layoutX="292.0" layoutY="206.0">
+               <image>
+                  <Image url="@../menu/editUserPane.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="317.0" layoutY="321.0" opacity="0.61" prefHeight="79.0" prefWidth="426.0" styleClass="pane-levelToDelete" stylesheets="@../css/EditorStyle.css">
+               <children>
+                  <Label fx:id="worldNameToDelete" alignment="CENTER" layoutX="72.0" layoutY="15.0" prefHeight="50.0" prefWidth="283.0" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label focusTraversable="false" layoutX="317.0" layoutY="239.0" prefHeight="50.0" prefWidth="415.0" styleClass="label-pressStart2P" stylesheets="@../css/EditorStyle.css" text="Are you sure you want to delete it:" wrapText="true">
+               <textFill>
+                  <LinearGradient endX="0.033175355450236976" endY="1.0" startX="0.7061611374407583" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.7333333492279053" blue="0.24313725531101227" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.886274516582489" green="0.3686274588108063" blue="0.1764705926179886" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button focusTraversable="false" layoutX="306.0" layoutY="455.0" mnemonicParsing="false" onAction="#deleteWorld" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="93.0" pickOnBounds="true" styleClass="image-view-selectable">
+                     <image>
+                        <Image url="@../menu/yesButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="backButtonWorldSafePane" focusTraversable="false" layoutX="673.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" stylesheets="@../css/MenuStyle.css">
+               <styleClass>
+                  <String fx:value="invisible-button" />
+                  <String fx:value="enlarging-button" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="63.0" pickOnBounds="true" styleClass="image-view-selectable">
+                     <image>
+                        <Image url="@../menu/noButton.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</Pane>

@@ -1,0 +1,21 @@
+# Build output
+target/
+out/
+*.class
+
+# Generated Javadoc (regenerate with: ./mvnw javadoc:javadoc)
+javadoc/
+
+# Local user profiles / saves created at runtime
+res/users/*
+!res/users/.gitkeep
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
