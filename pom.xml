@@ -39,12 +39,14 @@
         <sourceDirectory>src</sourceDirectory>
         <resources>
             <resource>
-                <!-- FXML and CSS are loaded from the classpath -->
+                <!-- res/ is on the classpath (as in the original Eclipse setup):
+                     FXML/CSS reference images via relative "@../" URLs.
+                     Everything else is also read from ./res on disk at runtime. -->
                 <directory>res</directory>
-                <includes>
-                    <include>fxml/**</include>
-                    <include>css/**</include>
-                </includes>
+                <excludes>
+                    <exclude>music/**</exclude>
+                    <exclude>users/**</exclude>
+                </excludes>
             </resource>
         </resources>
 
